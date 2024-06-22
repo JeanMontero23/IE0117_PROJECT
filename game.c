@@ -185,7 +185,7 @@ int count_adjacent_mines(char board[HEIGHT][WIDTH], int x, int y) {
 }
 
 // Esta funcion genera en pantalla las instrucciones de juego para ayudar al usuario
-void show_instructions() { // Eliminado el parámetro 'win'
+void show_instructions() {
     clear();
     mvprintw(0, 0, "Instrucciones del Juego:");
     mvprintw(2, 0, "1. Usa las teclas de flecha para moverte.");
