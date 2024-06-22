@@ -2,17 +2,17 @@
  * Primeramente se incluye el headers game.h ya que contiene HEIGHT y WIDTH junto con otros prototipos y definiciones
  * Seguidamente, stdlib en donde hay bibliotecas comunes
  * Con el uso de time.h se plantea usar para generar numeros aleatorios
- * Se incluye string.h para el uso de memset
+ * Se incluye string.h para poder hacer uso de memset
  */
 #include "game.h"
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
+#include <string.h> 
 
 // Se hace declaracion de prototipos de funciones internas que se van a utilizar a continuacion
 void initialize_board(char board[HEIGHT][WIDTH], int revealed[HEIGHT][WIDTH], int mines);
 void reveal_cell(WINDOW *win, char board[HEIGHT][WIDTH], int revealed[HEIGHT][WIDTH], int x, int y);
-void mark_mine(WINDOW *win, int marked[HEIGHT][WIDTH], int x, int y);
+void mark_mine(int marked[HEIGHT][WIDTH], int x, int y); // Eliminado el parámetro 'win'
 int check_victory(int revealed[HEIGHT][WIDTH], int marked[HEIGHT][WIDTH], char board[HEIGHT][WIDTH]);
 int count_adjacent_mines(char board[HEIGHT][WIDTH], int x, int y);
 
@@ -83,7 +83,7 @@ void start_game(WINDOW *win) {
                 }
                 break;
             case 'm':
-                mark_mine(win, marked, x, y);
+                mark_mine(marked, x, y);
                 break;
             default:
                 break;
@@ -150,7 +150,7 @@ void reveal_cell(WINDOW *win, char board[HEIGHT][WIDTH], int revealed[HEIGHT][WI
 }
 
 // La siguiente funcion cumple que se marque o desmarque una celda como mina
-void mark_mine(WINDOW *win, int marked[HEIGHT][WIDTH], int x, int y) {
+void mark_mine(int marked[HEIGHT][WIDTH], int x, int y) {
     marked[y][x] = !marked[y][x];
 }
 
@@ -185,7 +185,7 @@ int count_adjacent_mines(char board[HEIGHT][WIDTH], int x, int y) {
 }
 
 // Esta funcion genera en pantalla las instrucciones de juego para ayudar al usuario
-void show_instructions() {
+void show_instructions() { // Eliminado el parámetro 'win'
     clear();
     mvprintw(0, 0, "Instrucciones del Juego:");
     mvprintw(2, 0, "1. Usa las teclas de flecha para moverte.");
