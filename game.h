@@ -15,10 +15,10 @@
 /*
  * void start_game(WINDOW *win) es para iniciar el juego
  * win es un puntero hacia WINDOW de ncurses que sirve para la ventana en la terminal
- * void show_instructions(WINDOW *win) es para mostrar las instrucciones en la ventana win
+ * void show_instructions() es para mostrar las instrucciones
  */
 void start_game(WINDOW *win);
-void show_instructions(WINDOW *win);
+void show_instructions();
 
 // Final del contenido protegido contra inclusion repetida
 #endif
