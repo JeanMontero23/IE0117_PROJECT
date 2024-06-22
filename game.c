@@ -2,10 +2,12 @@
  * Primeramente se incluye el headers game.h ya que contiene HEIGHT y WIDTH junto con otros prototipos y definiciones
  * Seguidamente, stdlib en donde hay bibliotecas comunes
  * Con el uso de time.h se plantea usar para generar numeros aleatorios
+ * Se incluye string.h para el uso de memset
  */
 #include "game.h"
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 // Se hace declaracion de prototipos de funciones internas que se van a utilizar a continuacion
 void initialize_board(char board[HEIGHT][WIDTH], int revealed[HEIGHT][WIDTH], int mines);
@@ -23,8 +25,6 @@ int count_adjacent_mines(char board[HEIGHT][WIDTH], int x, int y);
 void start_game(WINDOW *win) {
     int startx = 0;
     int starty = 0;
-    int width = WIDTH;
-    int height = HEIGHT;
     int mines = 10;
 
     char board[HEIGHT][WIDTH];
@@ -197,3 +197,4 @@ void show_instructions(WINDOW *win) {
     refresh();
     getch();
 }
+
