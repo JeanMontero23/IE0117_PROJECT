@@ -1,16 +1,17 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11 -lncurses
+CFLAGS = -Wall -std=c99
+LIBS = -lncurses
 
 all: buscaminas
 
-buscaminas: main.o game.o
-	$(CC) main.o game.o -o buscaminas $(CFLAGS)
+buscaminas: main.o buscaminas.o
+	$(CC) $(CFLAGS) -o buscaminas main.o buscaminas.o $(LIBS)
 
-main.o: main.c game.h
-	$(CC) -c main.c $(CFLAGS)
+main.o: main.c buscaminas.h
+	$(CC) $(CFLAGS) -c main.c $(LIBS)
 
-game.o: game.c game.h
-	$(CC) -c game.c $(CFLAGS)
+buscaminas.o: buscaminas.c buscaminas.h
+	$(CC) $(CFLAGS) -c buscaminas.c $(LIBS)
 
 clean:
 	rm -f *.o buscaminas
