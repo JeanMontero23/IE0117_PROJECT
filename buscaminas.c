@@ -1,3 +1,7 @@
+/*
+ * Se incluyen las librerias estandar y ncurses
+ * Se define el tamano del tablero y el numero de las minas que seran distribuidas por el mismo
+ */
 #include <stdio.h>
 #include <ncurses.h>
 #include <stdlib.h>
@@ -8,10 +12,12 @@
 #define COLUMNAS 10
 #define MINAS 10
 
+// Se definen los arreglos del tablero, las casillas mostradas y las banderas
 int tablero[FILAS][COLUMNAS];
 int mostrado[FILAS][COLUMNAS];
 int banderas[FILAS][COLUMNAS];
 
+// Inician los valores del tablero, las casillas mostradas y las banderas a 0
 void inicializar_tablero() {
     for (int i = 0; i < FILAS; i++) {
         for (int j = 0; j < COLUMNAS; j++) {
@@ -22,6 +28,7 @@ void inicializar_tablero() {
     }
 }
 
+// Se colocan las minas con ayuda de la biblioteca time.h para aleatorizar la posicion de las mismas
 void colocar_minas() {
     srand(time(NULL));
     for (int i = 0; i < MINAS; ) {
@@ -34,6 +41,7 @@ void colocar_minas() {
     }
 }
 
+// Se hace el conteo de las minas que esten alrededor de cada casilla que no sea una mina y se actuliza el tablero
 void contar_minas() {
     for (int i = 0; i < FILAS; i++) {
         for (int j = 0; j < COLUMNAS; j++) {
@@ -52,6 +60,10 @@ void contar_minas() {
     }
 }
 
+/*
+ * Se despliega el tablero en la ventana game_win
+ * Tambien se resalta la posicion del cursor para que el jugador sepa en que casilla se ubica
+ */
 void mostrar_tablero(WINDOW *game_win, int cursor_y, int cursor_x) {
     int x = 2, y = 1;
     box(game_win, 0, 0);
@@ -89,6 +101,10 @@ void mostrar_tablero(WINDOW *game_win, int cursor_y, int cursor_x) {
     wrefresh(game_win);
 }
 
+/*
+ * Esta funcion descubre la casilla seleccionada
+ * Cubre la situacion que, si la casilla es cero se descubre de manera recursiva las celdas adyacentes
+ */
 void descubrir_casilla(int fila, int columna) {
     if (fila < 0 || fila >= FILAS || columna < 0 || columna >= COLUMNAS || mostrado[fila][columna] || banderas[fila][columna]) return;
     mostrado[fila][columna] = 1;
@@ -101,12 +117,18 @@ void descubrir_casilla(int fila, int columna) {
     }
 }
 
+// La siguiente funcion sirve para colocar o quitar una bandera en la casilla actual si todavia no se a seleccionado
 void colocar_quitar_bandera(int fila, int columna) {
     if (!mostrado[fila][columna]) {
         banderas[fila][columna] = !banderas[fila][columna];
     }
 }
 
+/*
+ * La siguiente funcion inicia el juego, de tal modo que se crea una ventana de juego
+ * Una vez creada la ventana se maneja la entrada del usuario para moverse por el menu
+ * Tambien se contempla la funcion de descubrir las casillas, colocar y quitar las banderas, y salir del juego
+ */
 void iniciar_juego() {
     inicializar_tablero();
     colocar_minas();
@@ -137,7 +159,7 @@ void iniciar_juego() {
                 descubrir_casilla(cursor_y, cursor_x);
                 if (tablero[cursor_y][cursor_x] == -1) {
                     clear();
-                    mvprintw(0, 0, "Game Over! Press any key to return to the menu.");
+                    mvprintw(0, 0, "Fin del juego! Presiona cualquier tecla pra volver al menu.");
                     refresh();
                     getch();
                     return;
@@ -152,6 +174,7 @@ void iniciar_juego() {
     }
 }
 
+// La siguiente funcion muestra las instrucciones del juego y espera la entrada de cualquier tecla para volver al menu prinicipal
 void mostrar_instrucciones() {
     clear();
     printw("Instrucciones del juego:\n");
@@ -159,11 +182,13 @@ void mostrar_instrucciones() {
     printw("2. Presione Enter para descubrir una casilla.\n");
     printw("3. Presione 'f' para colocar o quitar una bandera.\n");
     printw("4. Evite las minas para ganar el juego.\n");
+    printw("5. Presione la q en el tablero de juego para volver al menu principal.\n");
     printw("Presione cualquier tecla para volver al menú principal.\n");
     refresh();
     getch();
 }
 
+// Esta funcion sirve para se imprima el menu principal y se resalte la opcion actual del usuario para que sepa donde esta 
 void print_menu(WINDOW *menu_win, int highlight) {
     int x, y, i;
     char *options[] = {
