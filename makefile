@@ -5,13 +5,13 @@ LIBS = -lncurses
 all: buscaminas
 
 buscaminas: main.o buscaminas.o
-	$(CC) $(CFLAGS) -o buscaminas main.o buscaminas.o $(LIBS)
+	$(CC) -o buscaminas main.o buscaminas.o $(LIBS)
 
 main.o: main.c buscaminas.h
-	$(CC) $(CFLAGS) -c main.c $(LIBS)
+	$(CC) $(CFLAGS) -c main.c
 
 buscaminas.o: buscaminas.c buscaminas.h
-	$(CC) $(CFLAGS) -c buscaminas.c $(LIBS)
+	$(CC) $(CFLAGS) -c buscaminas.c
 
 clean:
 	rm -f *.o buscaminas

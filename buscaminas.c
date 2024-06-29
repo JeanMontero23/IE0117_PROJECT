@@ -10,12 +10,14 @@
 
 int tablero[FILAS][COLUMNAS];
 int mostrado[FILAS][COLUMNAS];
+int banderas[FILAS][COLUMNAS];
 
 void inicializar_tablero() {
     for (int i = 0; i < FILAS; i++) {
         for (int j = 0; j < COLUMNAS; j++) {
             tablero[i][j] = 0;
             mostrado[i][j] = 0;
+            banderas[i][j] = 0;
         }
     }
 }
@@ -63,6 +65,8 @@ void mostrar_tablero(WINDOW *game_win, int cursor_y, int cursor_x) {
                     } else {
                         mvwprintw(game_win, y + i, x + j * 2, "%d", tablero[i][j]);
                     }
+                } else if (banderas[i][j]) {
+                    mvwprintw(game_win, y + i, x + j * 2, "F");
                 } else {
                     mvwprintw(game_win, y + i, x + j * 2, "#");
                 }
@@ -74,6 +78,8 @@ void mostrar_tablero(WINDOW *game_win, int cursor_y, int cursor_x) {
                     } else {
                         mvwprintw(game_win, y + i, x + j * 2, "%d", tablero[i][j]);
                     }
+                } else if (banderas[i][j]) {
+                    mvwprintw(game_win, y + i, x + j * 2, "F");
                 } else {
                     mvwprintw(game_win, y + i, x + j * 2, "#");
                 }
@@ -84,7 +90,7 @@ void mostrar_tablero(WINDOW *game_win, int cursor_y, int cursor_x) {
 }
 
 void descubrir_casilla(int fila, int columna) {
-    if (fila < 0 || fila >= FILAS || columna < 0 || columna >= COLUMNAS || mostrado[fila][columna]) return;
+    if (fila < 0 || fila >= FILAS || columna < 0 || columna >= COLUMNAS || mostrado[fila][columna] || banderas[fila][columna]) return;
     mostrado[fila][columna] = 1;
     if (tablero[fila][columna] == 0) {
         for (int di = -1; di <= 1; di++) {
@@ -92,6 +98,12 @@ void descubrir_casilla(int fila, int columna) {
                 descubrir_casilla(fila + di, columna + dj);
             }
         }
+    }
+}
+
+void colocar_quitar_bandera(int fila, int columna) {
+    if (!mostrado[fila][columna]) {
+        banderas[fila][columna] = !banderas[fila][columna];
     }
 }
 
@@ -131,6 +143,9 @@ void iniciar_juego() {
                     return;
                 }
                 break;
+            case 'f':
+                colocar_quitar_bandera(cursor_y, cursor_x);
+                break;
             case 'q':
                 return;
         }
@@ -142,8 +157,9 @@ void mostrar_instrucciones() {
     printw("Instrucciones del juego:\n");
     printw("1. Use las flechas para moverse por el tablero.\n");
     printw("2. Presione Enter para descubrir una casilla.\n");
-    printw("3. Evite las minas para ganar el juego.\n");
-    printw("Presione cualquier tecla  para volver al menú principal en cualquier momento.\n");
+    printw("3. Presione 'f' para colocar o quitar una bandera.\n");
+    printw("4. Evite las minas para ganar el juego.\n");
+    printw("Presione cualquier tecla para volver al menú principal.\n");
     refresh();
     getch();
 }

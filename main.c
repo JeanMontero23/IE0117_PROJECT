@@ -3,8 +3,8 @@
 #include <ncurses.h>
 #include "buscaminas.h"
 
-#define MENU_HEIGHT 5
-#define MENU_WIDTH 30
+#define MENU_HEIGHT 7
+#define MENU_WIDTH 40
 
 void main_menu();
 
