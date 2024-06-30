@@ -1,10 +1,10 @@
 # Objetivo del proyecto
 
-Este proyecto busca implementar el juego clásico de Buscaminas en C con ayuda de la biblioteca ncurses para poder desarrollar una interfazde usuario por medio del uso de terminal.
+Este proyecto busca implementar el juego clásico de Buscaminas en C con ayuda de la biblioteca ncurses para poder desarrollar una interfa de usuario por medio del uso de terminal.
 
 ## Descripción del juego
 
-El juego buscaminas es un juego de lógica que tiene como objetivo descubrir todas las casilla que no tengan minas de un tablero de ciertas dimensiones. Algunas casillas tienen números que indican la cantidad de minas adyacetes a la propia casilla seleccionada. El usuario puede marcar las casillas donde cree que hay minas con una bandera.
+El juego buscaminas es un juego de lógica que tiene como objetivo descubrir todas las casills que no tengan minas de un tablero con determinadas dimensiones. Algunas casillas tienen números que indican la cantidad de minas adyacetes a la propia casilla seleccionada. El usuario uede marcar las casillas donde cree que hay minas con una bandera.
 
 ## Características
 
@@ -14,12 +14,12 @@ El juego buscaminas es un juego de lógica que tiene como objetivo descubrir tod
 
 ## Requisitos
 
-Para compilar y ejecutar este proyecto, se necesita tener instalados los siguientes componentes:
+Para compilar y ejecutar este proyecto, se necesitan tener instalados los siguientes componentes:
 
 - Un compilador de C (la persona autora hace uso de gcc).
 - La biblioteca ncurses.
 
-## Instrucciones de Instalació (Nota: sh indica que el bloque contiene comandos de shell)
+## Instrucciones de instalación Nota: sh indica que el bloque contiene comandos de shell)
 
 1. Primeramente se clona el repositorio en la máquina local.
     ```sh
@@ -40,7 +40,7 @@ Para compilar y ejecutar este proyecto, se necesita tener instalados los siguien
     ```sh
     ./buscaminas
     ```
-2. Cuando se ingrese al menú principal se utilizan las flechas del teclado para seleccionar una opción yluego se presiona `Enter`.
+2. Cuando se ingrese al menú principal se utilizan las flechas del teclado para seleccionar una opción luego se presiona `Enter`.
     - **Iniciar Juego**: Se comienza una nueva partida del juego.
     - **Instrucciones**: Se muestran las instrucciones del juego.
     - **Salir del Juego**: Se sale del programa.
