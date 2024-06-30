@@ -19,7 +19,7 @@ Para compilar y ejecutar este proyecto, se necesitan tener instalados los siguie
 - Un compilador de C (la persona autora hace uso de gcc).
 - La biblioteca ncurses.
 
-## Instrucciones de instalacion (Nota: sh indica que el bloque contiene comandos de shell)
+## Instrucciones de instalacion
 
 1. Primeramente se clona el repositorio en la maquina local.
     ```sh
