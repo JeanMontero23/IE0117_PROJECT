@@ -159,7 +159,7 @@ void iniciar_juego() {
                 descubrir_casilla(cursor_y, cursor_x);
                 if (tablero[cursor_y][cursor_x] == -1) {
                     clear();
-                    mvprintw(0, 0, "Fin del juego! Presiona cualquier tecla pra volver al menu.");
+                    mvprintw(0, 0, "Fin del juego! Presiona cualquier tecla para volver al menu.");
                     refresh();
                     getch();
                     return;
