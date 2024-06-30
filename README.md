@@ -4,7 +4,7 @@ Este proyecto busca implementar el juego clasico de buscaminas en C con ayuda de
 
 ## Descripcion del juego
 
-El juego buscaminas es un juego de logica que tiene como objetivo descubrir todas las casilas que no tengan minas de un tablero con determinadas dimensiones. Algunas casillas tienen numeros que indican la cantidad de minas adyacetes a la propia casilla seleccionada. El usuario debe marcar las casillas donde cree que hay minas con una bandera.
+El juego buscaminas es un juego de logica que tiene como objetivo descubrir todas las casillas que no tengan minas de un tablero con determinadas dimensiones. Algunas casillas tienen numeros que indican la cantidad de minas adyacentes a la propia casilla seleccionada. El usuario debe marcar las casillas donde cree que hay minas con una bandera.
 
 ## Caracteristicas
 
