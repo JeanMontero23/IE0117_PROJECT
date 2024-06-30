@@ -1,27 +1,27 @@
 # Objetivo del proyecto
 
-Este proyecto busca implementar el juego clasico de Buscaminas en C con ayuda de la biblioteca ncurses para poder desarrollar una interfaz de usuario por medio del uso de terminal.
+Este proyecto busca implementar el juego clásico de Buscaminas en C con ayuda de la biblioteca ncurses para poder desarrollar una interfazde usuario por medio del uso de terminal.
 
-## Descripcion del juego
+## Descripción del juego
 
-El juego buscaminas es un juego de logicaque tiene como objetivo descubrir todas las casillas de un tablero que no contienen minas. Algunas casillas tienen numeros que indican la cantidad de minas adyacente a la propia casilla seleccionada. El usuario puede marcar las casillas donde cree que hay minas con una bandera.
+El juego buscaminas es un juego de lógica que tiene como objetivo descubrir todas las casilla que no tengan minas de un tablero de ciertas dimensiones. Algunas casillas tienen números que indican la cantidad de minas adyacetes a la propia casilla seleccionada. El usuario puede marcar las casillas donde cree que hay minas con una bandera.
 
-## Caracteristicas
+## Características
 
-- Se deslpiega un tablero de juego con casillas ocultas
-- Posee la capacidad para marcar casillas con banderas
-- Existe una interfaz de usuario en terminal utilizando ncurses
+- Se despliega un tablero de juego con casillas ocultas.
+- Posee la capacidad para marcar casillas con banderas.
+- Existe una interfaz de usuario en terminal utilizando ncurses.
 
 ## Requisitos
 
 Para compilar y ejecutar este proyecto, se necesita tener instalados los siguientes componentes:
 
-- Un compilador de C (la persona autora hace uso de gcc)
-- La biblioteca ncurses
+- Un compilador de C (la persona autora hace uso de gcc).
+- La biblioteca ncurses.
 
-## Instrucciones de Instalación(Nota: sh indica que el bloque contiene comandos de shell)
+## Instrucciones de Instalació (Nota: sh indica que el bloque contiene comandos de shell)
 
-1. Primeramente se clona el repositorio en la maquina local.
+1. Primeramente se clona el repositorio en la máquina local.
     ```sh
     git clone https://github.com/tuusuario/buscaminas.git
     ```
@@ -29,7 +29,7 @@ Para compilar y ejecutar este proyecto, se necesita tener instalados los siguien
     ```sh
     cd buscaminas
     ```
-3. Por ultimo se compila el proyecto utilizando make.
+3. Por último se compila el proyecto utilizando make.
     ```sh
     make
     ```
@@ -40,7 +40,7 @@ Para compilar y ejecutar este proyecto, se necesita tener instalados los siguien
     ```sh
     ./buscaminas
     ```
-2. Cuando se ingrese al menú principal,se utilizan las flechas del teclado para seleccionar una opción y presiona `Enter`.
+2. Cuando se ingrese al menú principal se utilizan las flechas del teclado para seleccionar una opción yluego se presiona `Enter`.
     - **Iniciar Juego**: Se comienza una nueva partida del juego.
     - **Instrucciones**: Se muestran las instrucciones del juego.
     - **Salir del Juego**: Se sale del programa.
@@ -56,10 +56,10 @@ Para compilar y ejecutar este proyecto, se necesita tener instalados los siguien
 
 1. El objetivo del juego es descubrir todas las casillas que no contengan minas.
 2. Las casillas que contienen números indican cuántas minas adyacentes hay.
-3. Se puede dejar una marca en las casillas donde crees que hay minas con una bandera (`F`).
+3. Se puede dejar una marca en las casillas donde se crea que hay minas mediante el uso de una bandera (`F`).
 
 ## Limpieza de los archivos
 
-Para limpiar los archivos generados durante la compilacion y asi mantener un mayor orden se utiliza el siguiente comando:
+Para limpiar los archivos generados durante la compilación y aí mantener un mayor orden se utiliza el siguiente comando:
 ```sh
 make clean
