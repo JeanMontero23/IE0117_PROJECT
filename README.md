@@ -1,4 +1,4 @@
-# Objetivo realizar un buscaminas
+# Objetivo del proyecto
 
 Este proyecto busca implementar el juego clasico de Buscaminas en C con ayuda de la biblioteca ncurses para poder desarrollar una interfaz de usuario por medio del uso de terminal.
 
@@ -42,7 +42,7 @@ Para compilar y ejecutar este proyecto, se necesita tener instalados los siguien
     ```
 2. Cuando se ingrese al menú principal,se utilizan las flechas del teclado para seleccionar una opción y presiona `Enter`.
     - **Iniciar Juego**: Se comienza una nueva partida del juego.
-    - **Instrucciones**: S muestran las instrucciones del juego.
+    - **Instrucciones**: Se muestran las instrucciones del juego.
     - **Salir del Juego**: Se sale del programa.
 
 ### Controles del juego
