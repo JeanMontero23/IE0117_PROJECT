@@ -1,6 +1,6 @@
 # Objetivo del proyecto
 
-Este proyecto busca implementar el juego clasico debuscaminas en C con ayuda de la biblioteca ncurses para desarrollar una interfaz de usuario por medio del uso de terminal.
+Este proyecto busca implementar el juego clasico de buscaminas en C con ayuda de la biblioteca ncurses para desarrollar una interfaz de usuario por medio del uso de terminal.
 
 ## Descripcion del juego
 
